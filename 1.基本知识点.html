@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- script标签加上crossorigin只是为了更好的了解跨域所报的错误 -->
+    <!-- react核心库 -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <!-- 虚拟dom -> 真实dom -->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        // 除了前面两个参数之外 后面的参数都是子元素
+        const span = React.createElement('span', {}, "这是一个span标签")
+        const h1 = React.createElement('h1', {
+            title: '这是一个h1标签'
+        }, 'hello react', span)
+        console.log(h1)
+        ReactDOM.render(h1, document.getElementById('root'))
+    </script>
+</body>
+
+</html>

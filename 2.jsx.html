@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 此时使用babel进行编码 默认情况下 script中内容 就是直接被浏览器直接使用 -->
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // 此时就是jsx
+        // const h1 = <h1 title="这是一个测试元素">这是一个h1元素 <span>这是一个span标签</span></h1>
+        ReactDOM.render(<h1 title="这是一个测试元素">这是一个h1元素 <span>这是一个span标签</span></h1>, document.getElementById('app'))
+    </script>
+</body>
+
+</html>
