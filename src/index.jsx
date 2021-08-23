@@ -1,44 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './css/index.css'
-// 必须写成如下形式 这样才不会在打包之后 打包之后 会发生路径转换
-import src1 from './assets/1.jfif'
-import src2 from './assets/2.jpg'
-import src3 from './assets/3.jfif'
-import src4 from './assets/4.jfif'
-import src5 from './assets/5.jfif'
+import MyFuncComp from './myFuncComp'
+import MyClassComp from './myClassComp'
 
-const srcs = [src1, src2, src3, src4, src5]
-let num = 0
-let timer = null
-const name = "test"
-const container = (
-    <div className="container">
-        <img src={srcs[num]} className={name} alt="" />
+// const funcComp = <MyFuncComp />
+// console.log(funcComp)
+// console.log(<MyClassComp />)
+
+// console.log(<div class="test"></div>)
+
+ReactDOM.render((
+    <div>
+        {/* 虽然没有写属性在组件上 但实际上此时还是会产生对象props进行传递 */}
+        <MyFuncComp number={234} />
+        <MyFuncComp />
+        {/* 此时就是利用html语法 */}
+        <MyClassComp className="test" number={1} root style={{color: 'red'}}/>
+        <MyClassComp number={1} root={true} />
+        <MyClassComp number="2" ui={<div>这是一个ui</div>}/>
+        <MyClassComp obj={{name: "chen", age: 18}}></MyClassComp>
     </div>
-)
-const root = document.getElementById('root')
-root.onmouseenter = function () {
-    stop()
-}
-root.onmouseleave = function () {
-    start()
-}
-function start() {
-    stop()
-    timer = setInterval(() => {
-        num = (num + 1) % srcs.length
-        const container = (
-            <div className="container">
-                <img src={srcs[num]} className={name} alt="" />
-            </div>
-        )
-        ReactDOM.render(container, document.getElementById('root'))
-    }, 1000)
-}
-function stop() {
-    clearInterval(timer)
-}
-ReactDOM.render(container, document.getElementById('root'))
-start()
-
+), document.getElementById('root'))
