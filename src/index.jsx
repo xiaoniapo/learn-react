@@ -1,23 +1,31 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MyFuncComp from './myFuncComp'
-import MyClassComp from './myClassComp'
-
-// const funcComp = <MyFuncComp />
-// console.log(funcComp)
-// console.log(<MyClassComp />)
-
-// console.log(<div class="test"></div>)
-
-ReactDOM.render((
-    <div>
-        {/* 虽然没有写属性在组件上 但实际上此时还是会产生对象props进行传递 */}
-        <MyFuncComp number={234} />
-        <MyFuncComp />
-        {/* 此时就是利用html语法 */}
-        <MyClassComp className="test" number={1} root style={{color: 'red'}}/>
-        <MyClassComp number={1} root={true} />
-        <MyClassComp number="2" ui={<div>这是一个ui</div>}/>
-        <MyClassComp obj={{name: "chen", age: 18}}></MyClassComp>
-    </div>
-), document.getElementById('root'))
+// import Student from './components/Student'
+// const stu = {
+//     name: 'chen',
+//     age: 20,
+//     sex: 1
+// }
+import StudentList from './components/StudentList'
+const appkey = '18271562112_1598363415528'
+async function getData(url) {
+    const result = fetch(url).then(data => data.json()).then(data => data.data)
+    return result
+} 
+async function render() {
+    const stus = await getData('http://open.duyiedu.com/api/student/findAll?appkey=' + appkey)
+    ReactDOM.render((
+        <React.Fragment>
+            <StudentList stus={stus}></StudentList>
+        </React.Fragment>
+    ), document.getElementById('root'))
+}
+render()
+// ReactDOM.render((
+//     <React.Fragment>
+//         <StudentList stus={stus} />
+//         {/* 如下两种方法是等效的 */}
+//         {/* <Student {...stu} /> */}
+//         {/* <Student name={stu.name} age={stu.age} sex={stu.age}  /> */}
+//     </React.Fragment>
+// ), document.getElementById('root'))
