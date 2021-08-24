@@ -1,31 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import Student from './components/Student'
-// const stu = {
-//     name: 'chen',
-//     age: 20,
-//     sex: 1
-// }
-import StudentList from './components/StudentList'
-const appkey = '18271562112_1598363415528'
-async function getData(url) {
-    const result = fetch(url).then(data => data.json()).then(data => data.data)
-    return result
-} 
-async function render() {
-    const stus = await getData('http://open.duyiedu.com/api/student/findAll?appkey=' + appkey)
-    ReactDOM.render((
-        <React.Fragment>
-            <StudentList stus={stus}></StudentList>
-        </React.Fragment>
-    ), document.getElementById('root'))
-}
-render()
-// ReactDOM.render((
-//     <React.Fragment>
-//         <StudentList stus={stus} />
-//         {/* 如下两种方法是等效的 */}
-//         {/* <Student {...stu} /> */}
-//         {/* <Student name={stu.name} age={stu.age} sex={stu.age}  /> */}
-//     </React.Fragment>
-// ), document.getElementById('root'))
+// import Tick from './components/Tick'
+import Test from './components/Test'
+// 虽然可以使用属性进行传递传递状态 但是此时会导致父组件的数据很复杂 进而导致难以维护 
+// 此时就可以通过在组件内部书写自己的数据 进而
+// let number = 10
+// ReactDOM.render(<Tick number={number} />, document.getElementById('root'))
+// const timer = setInterval(() => {
+//     number --
+//     ReactDOM.render(<Tick number={number} />, document.getElementById('root'))
+//     if (number <= 0) {
+//         clearInterval(timer)
+//     }
+// }, 1000)
+ReactDOM.render((<Test />), document.getElementById('root'))
+
