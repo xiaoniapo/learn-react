@@ -1,14 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './style/init.css'
-import BallList from './components/BallList'
-// import Ball from './components/Ball'
+import TickController from './components/TickController'
+// import Tick from './components/Tick'
+// 正常函数内部得
+// function handleClick(e) {
+//     console.log(this) // undefined
+//     console.log(e)
+//     console.log(123, '点击了')
+// }
 
-// ReactDOM.render(
-//     <Ball x={300} y={400} xSpeed={4} ySpeed={5} bg='lightblue' />,
-//     document.getElementById('root')
+// const div = (
+//     <div
+//         // onClick={handleClick}
+//         onMouseEnter={(e) => {
+//             console.log('悬浮了', this, e) // undefined
+//         }}
+//     >
+//         这是一个测试组件
+//     </div>
 // )
-ReactDOM.render(
-    <BallList num={10} />,
-    document.getElementById('root')
-)
+
+// ReactDOM.render((<Tick num={10} />), document.getElementById('root'))
+ReactDOM.render(<TickController />, document.getElementById('root'))
