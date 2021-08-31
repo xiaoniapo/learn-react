@@ -1,7 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MyTest from './MyTest'
+import App from './App'
 
-ReactDOM.render((
-    <MyTest />
-), document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
