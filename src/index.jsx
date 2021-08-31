@@ -1,22 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import OldLifeClycle from './OldLifeClycle'
-import Test from './Test'
-// let show = true
-ReactDOM.render(
-    <>
-        <Test />
-        {/* {show ? <OldLifeClycle n={n} /> : null} */}
+import Slot from './Slot'
 
-        {/* <button
-            onClick={() => {
-                console.log(13)
-                show = !show
-                console.log(show)
-            }}
-        >
-            显示/隐藏
-        </button> */}
-    </>,
-    document.getElementById('root')
-)
+ReactDOM.render((
+    <Slot content={<h1>这是属性的</h1>}>
+        {/* 如果能将插槽的内容写在这里面 肯定会更加符合规范 ---> react会将其作为组件的一个属性children进行传递 */}
+        <div>这是一个children</div>
+    </Slot>
+), document.getElementById('root'))
