@@ -1,0 +1,18 @@
+.container {
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+.left {
+    /* 通过order去调整顺序的问题 */
+    order: 1;
+    background-color: red;
+}
+.main {
+    flex: 1 1 auto;
+    order: 2;
+}
+.right {
+    order: 3;
+    background-color: green;
+}
