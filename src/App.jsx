@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-// import Form from './components/Form'
-import FormTest from './components/FormTest'
+import Test from './components/RadioGroup/Test'
 export default class App extends Component {
     render() {
-        return (
-            <FormTest />
-        )
+        return <Test />
     }
 }
