@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
-
+import { type } from '../../types/dataType'
 export default class RadioGroup extends Component {
-    onChange = e => {
+    static propTypes = {
+        datas: type.datas,
+        onChange: type.onChange,
+        selectDatas: type.selectDatas,
+    }
+    static defaultProps = {
+        datas: [],
+        selectDatas: '',
+    }
+    onChange = (e) => {
         this.props.onChange && this.props.onChange(e)
     }
-    getRadioList = () => (
-        this.props.datas.map(it => (
+    getRadioList = () =>
+        this.props.datas.map((it) => (
             <label key={it.value}>
-                <input 
-                    type="radio" 
+                <input
+                    type='radio'
                     name={this.props.name}
                     value={it.value}
                     checked={it.value === this.props.selectDatas}
@@ -17,13 +26,8 @@ export default class RadioGroup extends Component {
                 {it.text}
             </label>
         ))
-    )
     render() {
         const showList = this.getRadioList()
-        return (
-            <div>
-                {showList}
-            </div>
-        )
+        return <div>{showList}</div>
     }
 }

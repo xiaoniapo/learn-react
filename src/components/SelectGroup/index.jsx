@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
-
-export default class CheckboxGroup extends Component {
+import { type } from '../../types/dataType'
+export default class SelectGroup extends Component {
+    static propTypes = {
+        datas: type.datas,
+        selectedData: type.selectDatas,
+        onChange: type.onChange
+    }
+    static defaultProps = {
+        datas: [],
+        selectedData: ""
+    }
     handleChange = (e) => {
         this.props.onChange && this.props.onChange(e)
     }
